@@ -1,51 +1,25 @@
-<!DOCTYPE html>
-<html>
-<head>
-	<title>Explorador</title>
-	<link rel="stylesheet" type="text/css" href="app.component.scss">
-</head>
-<body>
-	
-	<div class="Explorer">
-		<div class="Container">
-			<div class="Path">
-				<div class= "UpButton" align="center"> 
-					<img src="folder_up.png" width="60px" height="60px">
-				</div>
+<!--suppress CheckImageSize -->
+<div class="container">
+  <div class="up-button">
+    <img alt="folder-up" height="60" src="assets/folder_up.png" width="60">
+  </div>
 
-				<div class="PathString">
-					<form>
-						<input type="text" name="ruta">
-					</form>
-				</div>
-			</div>
+  <div class="path-string">
+    <input name="ruta" type="text">
+  </div>
 
-  			<div class="Buttons">
-  				<button class=Duplicate>Duplicar</button>
-  				<br>
-  				<button class=Move>Mover</button>
-  				<br>
-  				<button class=Delete>Eliminar</button>
-  				<br>
-  				<button class=Rename>Cambiar nombre</button>
-  				<br>
-  				<button class=Permission>Información de permisos</button>
-  			</div>
-  			<div class="MainView">
-  				<img src="carpeta.png" width="100px" height="100px" hspace="10px" vspace="10">
-  				<img src="txt.png" width="100px" height="100px" hspace="10px" vspace="10">
-  				<img src="carpeta.png" width="100px" height="100px" hspace="10px" vspace="10">
-  				<img src="txt.png" width="100px" height="100px" hspace="10px" vspace="10">
-  				<img src="txt.png" width="100px" height="100px" hspace="10px" vspace="10">
-  				<img src="carpeta.png" width="100px" height="100px" hspace="10px" vspace="10">
-  				<img src="txt.png" width="100px" height="100px" hspace="10px" vspace="10">
-  				<img src="carpeta.png" width="100px" height="100px" hspace="10px" vspace="10">
-  				<img src="txt.png" width="100px" height="100px" hspace="10px" vspace="10">
-  				<img src="txt.png" width="100px" height="100px" hspace="10px" vspace="10">
+  <aside>
+    <button>Duplicar</button>
+    <button>Mover</button>
+    <button>Eliminar</button>
+    <button>Cambiar nombre</button>
+    <button>Información de permisos</button>
+  </aside>
 
-
-  			</div>  		
-		</div>
-	</div>
-</body>
-</html>
+  <div class="main-view">
+    <ng-container *ngFor="let i of [1,2,3,4,5,6]">
+      <img alt="directory" height="100" src="assets/carpeta.png" width="100">
+      <img alt="file" height="100" src="assets/txt.png" width="100">
+    </ng-container>
+  </div>
+</div>
