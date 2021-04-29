@@ -1,11 +1,11 @@
 <!--suppress CheckImageSize -->
 <div class="container">
   <div class="up-button">
-    <img alt="folder-up" height="60" src="assets/folder_up.png" width="60">
+    <img alt="folder-up" height="50" src="assets/folder_up.png" width="50">
   </div>
 
   <div class="path-string">
-    <input name="ruta" type="text">
+    <h1>C:/seccion/carpeta/otracarpeta/</h1>
   </div>
 
   <aside>
@@ -17,9 +17,20 @@
   </aside>
 
   <div class="main-view">
-    <ng-container *ngFor="let i of [1,2,3,4,5,6]">
-      <img alt="directory" height="100" src="assets/carpeta.png" width="100">
-      <img alt="file" height="100" src="assets/txt.png" width="100">
-    </ng-container>
+    <div class="files">
+      <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8,9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">    
+        <div class="dcontainer">
+          <img alt="directory" height="100" src="assets/carpeta.png" width="100" hspace="15px" vspace="15px">
+        </div>
+        <div class="fcontainer">
+          <img alt="file" height="100" src="assets/txt.png" width="100" hspace="15px" vspace="15px">
+        </div>
+    
+      </ng-container>
+    </div>
+    
+    <div class="addbutton">
+      <img alt="add-button" height="70" src="assets/boton-agregar.png" width="70">
+    </div>
   </div>
 </div>
