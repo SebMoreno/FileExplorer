@@ -8,21 +8,21 @@
 }
 
 .up-button {
-  
-  img{
+
+  img {
     display: block;
-    margin:auto;
+    margin: auto;
     border: 2px solid black;
-    background-color: #DCDCDC ;
- 
-    &:hover{
-     cursor: pointer;
-     background-color: #C1C1C1;
+    background-color: #DCDCDC;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #C1C1C1;
     }
- 
-    &:active{
-     cursor: pointer;
-     background-color: #83827B;
+
+    &:active {
+      cursor: pointer;
+      background-color: #83827B;
     }
   }
 }
@@ -30,7 +30,7 @@
 .path-string {
   margin: auto;
   border: 1px solid black;
-  box-sizing: border;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
 }
@@ -49,7 +49,7 @@ aside {
       color: black;
     }
 
-    &:active{
+    &:active {
       background-color: #83827B;
     }
   }
@@ -57,60 +57,63 @@ aside {
 
 .main-view {
   display: grid;
-  position:relative;
+  position: relative;
   overflow: hidden;
   margin: 10px;
   grid-template-columns: 100%;
   grid-template-rows: 85.7%;
 }
 
-.files{
+.files {
   width: 100%;
-  overflow-x:hidden;
-  
-  .fcontainer,.dcontainer{
-    width:130px;
+  overflow-x: hidden;
+
+  .fcontainer, .dcontainer {
+    width: 130px;
     height: 130px;
     display: inline-block;
-    box-sizing: border-box; 
-  }
-
-  .fcontainer:hover,.dcontainer:hover{
-    cursor: pointer;
-    background-color:#B0DEEB; 
-  }
-
-  .fcontainer:active,.dcontainer:active{
-    cursor: pointer;
-    background-color:#8DE7EC;
-    border: 1px solid #6EACBE; 
     box-sizing: border-box;
+    cursor: pointer;
+  }
+
+  .fcontainer:hover, .dcontainer:hover {
+    background-color: #B0DEEB;
+  }
+
+  .fcontainer:active, .dcontainer:active {
+    background-color: #8DE7EC;
+    border: 1px solid #6EACBE;
+    box-sizing: border-box;
+  }
+
+  img{
+    margin: 15px;
   }
 }
 
-.addbutton{
- position: absolute;
- width: 100%;
- height: 80px;
- bottom: 0;
- 
- background: #FFFBA6;
- border-top: 1px solid black;
- align-items: center;
+.addbutton {
+  position: absolute;
+  width: 100%;
+  height: 80px;
+  bottom: 0;
 
- img{
-  display: block;
-  margin:auto;
-  border-radius: 45px;
+  background: #FFFBA6;
+  border-top: 1px solid black;
+  align-items: center;
 
-  &:hover{
-    cursor: pointer;
-    background: #C1C1C1;
+  img {
+    display: block;
+    margin: auto;
+    border-radius: 45px;
+
+    &:hover {
+      cursor: pointer;
+      background: #C1C1C1;
+    }
+
+    &:active {
+      cursor: pointer;
+      background: #83827B;
+    }
   }
-
-  &:active{
-   cursor: pointer;
-   background: #83827B;
-  }
- }   
 }

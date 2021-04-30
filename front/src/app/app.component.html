@@ -13,22 +13,22 @@
     <button>Mover</button>
     <button>Eliminar</button>
     <button>Cambiar nombre</button>
-    <button>Información de permisos</button>
+    <button (click)="openPermissionsDialog()">Información de permisos</button>
   </aside>
 
   <div class="main-view">
     <div class="files">
-      <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8,9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">    
+      <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8,9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
         <div class="dcontainer">
-          <img alt="directory" height="100" src="assets/carpeta.png" width="100" hspace="15px" vspace="15px">
+          <img alt="directory" height="100" src="assets/carpeta.png" width="100">
         </div>
         <div class="fcontainer">
-          <img alt="file" height="100" src="assets/txt.png" width="100" hspace="15px" vspace="15px">
+          <img alt="file" height="100" src="assets/txt.png" width="100">
         </div>
-    
+
       </ng-container>
     </div>
-    
+
     <div class="addbutton">
       <img alt="add-button" height="70" src="assets/boton-agregar.png" width="70">
     </div>
