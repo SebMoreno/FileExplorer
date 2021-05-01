@@ -12,6 +12,7 @@ export class AppComponent {
   title = 'FileExplorer';
 
   constructor(public dialogService: DialogService) {
+    
   }
 
   openPermissionsDialog(): void {

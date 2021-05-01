@@ -1,0 +1,78 @@
+.vpermission{
+
+    display: grid;
+    grid-template-columns: repeat(1,1fr);
+    grid-template-rows: repeat(3,1fr);
+    width: 500px;
+    height: 350px;
+    border: 2px solid black;
+
+    p{
+        color:black;
+    }
+}
+
+.propietario{
+    
+    display: flex;
+    border-bottom: 1px solid black;
+
+    div{
+        flex:1;
+        margin: auto;
+        text-align: center;   
+    }
+}
+
+.table{
+
+    border-bottom: 1px solid black;
+
+    .title{
+        
+        display: flex;
+        justify-content: center;
+        background: #C2C2C2;
+    
+        div{
+            flex:1;
+            text-align: center;
+        } 
+    }
+
+    .contenido{
+        
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows: repeat(3,1fr);
+
+        p{
+            text-align: center;
+        }
+
+        input[type=checkbox]{
+            margin: auto;
+        }
+    } 
+}
+
+.buttons{
+    
+    text-align: center;
+    margin: auto;
+    flex: 1;
+
+    button {
+        background-color: #DCDCDC;
+        color:black;
+        
+        &:hover {
+          background-color: #C1C1C1;
+          color: black;
+        }
+    
+        &:active {
+          background-color: #83827B;
+        }
+    }
+}
