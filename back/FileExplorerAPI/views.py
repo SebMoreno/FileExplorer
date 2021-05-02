@@ -21,33 +21,55 @@ class Info(APIView):
                 'type': 'dir' if permissions[0] == 'd' else 'file',
                 'permissions': {
                     'owner': {
-                        'read': permissions[1] if permissions[1] != '-' else None,
-                        'write': permissions[2] if permissions[2] != '-' else None,
-                        'exec': permissions[3] if permissions[3] != '-' else None
+                        'read': permissions[1] != '-',
+                        'write': permissions[2] != '-',
+                        'exec': permissions[3] != '-'
                     },
                     'group': {
-                        'read': permissions[4] if permissions[4] != '-' else None,
-                        'write': permissions[5] if permissions[5] != '-' else None,
-                        'exec': permissions[6] if permissions[6] != '-' else None
+                        'read': permissions[4] != '-',
+                        'write': permissions[5] != '-',
+                        'exec': permissions[6] != '-'
                     },
                     'other': {
-                        'read': permissions[7] if permissions[7] != '-' else None,
-                        'write': permissions[8] if permissions[8] != '-' else None,
-                        'exec': permissions[9] if permissions[9] != '-' else None
-                    },
+                        'read': permissions[7] != '-',
+                        'write': permissions[8] != '-',
+                        'exec': permissions[9] != '-'
+                    }
                 }
             })
-        files = gout('find . -maxdepth 1 -type f').split('\n')[1:]
-        dirs = gout('find . -maxdepth 1 -type d').split('\n')[1:]
         return Response({
             'path': getActualFolder(),
             'content': content
         })
 
     def post(self, request):
-        x = gout('ls -l')
-        pass
-
-    def put(self, request):
         cd(request.data)
         return Response(getActualFolder())
+
+    def put(self, request):
+        name = request.data['name']
+        object_type = request.data['type']
+        command = 'mkdir' if object_type == 'dir' else 'touch'
+        # Returns if error
+        return Response(gout(f'{command} {name}'))
+
+
+class Permissions(APIView):
+    def get(self, request):
+        return Response(gout('cat /etc/passwd | cut -d: -f1').split('\n'))
+
+    def post(self, request):
+        name = request.data['name']
+        permissions = request.data['permissions']
+        perms = ''
+        for i in ['owner', 'group', 'other']:
+            n = "".join(['1' if permissions[i][j] else '0' for j in ['read', 'write', 'exec']])
+            perms += str(int(n, 2))
+        # Returns if error
+        return Response(gout(f'chmod -R {perms} {name}'))
+
+    def put(self, request):
+        name = request.data['name']
+        user = request.data['user']
+        # Returns if error
+        return Response(gout(f'chown -R {user} {name}'))

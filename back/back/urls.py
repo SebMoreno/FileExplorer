@@ -2,5 +2,6 @@ from django.urls import path
 from FileExplorerAPI import views
 
 urlpatterns = [
-    path('', views.Info.as_view()),
+    path('info', views.Info.as_view()),
+    path('permissions', views.Permissions.as_view())
 ]
