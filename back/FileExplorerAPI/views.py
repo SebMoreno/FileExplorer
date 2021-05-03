@@ -53,6 +53,12 @@ class Info(APIView):
         # Returns if error
         return Response(gout(f'{command} {name}'))
 
+    def patch(self, request):
+        pwd = gout('pwd') + "/"
+        destiny = pwd + request.data['destiny']
+        documents = pwd + f" {pwd}".join(request.data['documents'])
+        return Response(gout(f'mv {documents} {destiny}'))
+
 
 class Permissions(APIView):
     def get(self, request):
@@ -67,6 +73,13 @@ class Permissions(APIView):
             perms += str(int(n, 2))
         # Returns if error
         return Response(gout(f'chmod -R {perms} {name}'))
+
+    def patch(self, request):
+        pwd = gout('pwd') + "/"
+        documents = pwd + f" {pwd}".join(request.data['documents'])
+        print(f'rm -rf {documents}')
+        return Response(gout(f'rm -rf {documents}'))
+        # return Response('a')
 
     def put(self, request):
         name = request.data['name']
