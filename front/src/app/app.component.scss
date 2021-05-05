@@ -12,7 +12,7 @@
   margin: auto;
 
   img {
-    
+
     border: 2px solid black;
     background-color: #DCDCDC;
 
@@ -29,7 +29,7 @@
 }
 
 .path-string {
-  
+
   border: 1px solid black;
   box-sizing: border-box;
   width: 100%;
@@ -39,7 +39,7 @@
 aside {
   display: flex;
   flex-direction: column;
-  border-top:1px solid black; ;
+  border-top: 1px solid black;;
   border-right: 1px solid black;
 
   button {
@@ -70,25 +70,25 @@ aside {
   width: 100%;
   overflow-x: hidden;
 
-  .fcontainer, .dcontainer {
+  .file-container, .dir-container {
     width: 130px;
     height: 130px;
     display: inline-block;
     box-sizing: border-box;
     cursor: pointer;
     text-align: center;
+
+    &:hover {
+      background-color: #B0DEEB;
+    }
+
+    &:active {
+      background-color: #8DE7EC;
+      border: 1px solid #6EACBE;
+    }
   }
 
-  .fcontainer:hover, .dcontainer:hover {
-    background-color: #B0DEEB;
-  }
-
-  .fcontainer:active, .dcontainer:active {
-    background-color: #8DE7EC;
-    border: 1px solid #6EACBE;
-  }
-
-  img{
+  img {
     margin: 15px;
   }
 }

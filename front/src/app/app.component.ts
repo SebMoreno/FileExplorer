@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
-import { ObjPermissionsDialogComponent } from './obj-permissions-dialog/obj-permissions-dialog.component';
+import { DocPermissionsDialogComponent } from './doc-permissions-dialog/doc-permissions-dialog.component';
+import { ApiControllerService } from './services/api-controller.service';
 
 @Component({
   selector: 'app-root',
@@ -11,16 +12,22 @@ import { ObjPermissionsDialogComponent } from './obj-permissions-dialog/obj-perm
 export class AppComponent {
   title = 'FileExplorer';
 
-  constructor(public dialogService: DialogService) {
-    
+  constructor(private dialogService: DialogService, public apics: ApiControllerService) {
   }
 
   openPermissionsDialog(): void {
-    this.dialogService.open(ObjPermissionsDialogComponent,
+    this.dialogService.open(DocPermissionsDialogComponent,
       {
         header: 'pripra',
         showHeader: false,
         dismissableMask: true
       });
+  }
+
+  access(index: number): void {
+    this.apics.changeDirectory(this.apics.content[index].name);
+  }
+  folderUp(): void {
+    this.apics.changeDirectory('..');
   }
 }

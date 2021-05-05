@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ObjPermissionsDialogComponent } from './obj-permissions-dialog.component';
+import { DocPermissionsDialogComponent } from './doc-permissions-dialog.component';
 
 describe('ObjPermissionsDialogComponent', () => {
-  let component: ObjPermissionsDialogComponent;
-  let fixture: ComponentFixture<ObjPermissionsDialogComponent>;
+  let component: DocPermissionsDialogComponent;
+  let fixture: ComponentFixture<DocPermissionsDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ObjPermissionsDialogComponent ]
+      declarations: [ DocPermissionsDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ObjPermissionsDialogComponent);
+    fixture = TestBed.createComponent(DocPermissionsDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

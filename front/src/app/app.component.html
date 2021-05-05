@@ -1,11 +1,11 @@
 <!--suppress CheckImageSize -->
 <div class="container">
   <div class="up-button">
-    <img alt="folder-up" height="50" src="assets/folder_up.png" width="50">
+    <img alt="folder-up" (click)="folderUp()" *ngIf="apics.path" height="50" src="assets/folder_up.png" width="50">
   </div>
 
   <div class="path-string">
-    <h1>C:/seccion/carpeta/otracarpeta/</h1>
+    <h1>C:{{apics.path}}</h1>
   </div>
 
   <aside>
@@ -18,17 +18,12 @@
 
   <div class="main-view">
     <div class="files">
-      <ng-container *ngFor="let i of [1,2,3,4,5,6,7,8,9,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]">
-        <div class="dcontainer">
-          <img alt="directory" height="100" src="assets/carpeta.png" width="100">
-          <p>directory</p>
-        </div>
-        <div class="fcontainer">
-          <img alt="file" height="100" src="assets/hoja-en-blanco.png" width="100">
-          <p>file</p>
-        </div>
-
-      </ng-container>
+      <div (dblclick)="doc.type === 'dir' ? access(i) : null"
+           *ngFor="let doc of apics.content; let i=index"
+           [class]="doc.type + '-container'">
+        <img [alt]="doc.type" [src]="'assets/' + doc.type + '.png'" height="100" width="100">
+        <p>{{doc.name}}</p>
+      </div>
     </div>
 
     <div class="addbutton">

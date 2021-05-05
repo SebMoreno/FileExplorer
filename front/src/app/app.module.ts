@@ -2,18 +2,20 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import { ObjPermissionsDialogComponent } from './obj-permissions-dialog/obj-permissions-dialog.component';
+import { DocPermissionsDialogComponent } from './doc-permissions-dialog/doc-permissions-dialog.component';
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ObjPermissionsDialogComponent,
+    DocPermissionsDialogComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    HttpClientModule,
     DynamicDialogModule
   ],
   providers: [],
