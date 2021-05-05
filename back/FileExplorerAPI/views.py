@@ -1,12 +1,30 @@
+import rest_framework.request
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from subprocess import getoutput as gout
-from os import system as sys, chdir as cd
+from os import chdir as cd
 from back.settings import BASE_DIR
 
 
 def getActualFolder():
     return gout('pwd')[len(str(BASE_DIR)):]
+
+
+class Actions(APIView):
+    def get(self, request, dtype, name):
+        command = 'mkdir' if dtype == 'dir' else 'touch'
+        return Response(gout(f'{command} {name}'))
+
+    def post(self, request, action):
+        pwd = gout('pwd') + "/"
+        destiny = pwd + request.data['destiny']
+        documents = pwd + f" {pwd}".join(request.data['documents'])
+        return Response(gout(f'{action} {documents} {destiny}'))
+
+    def put(self, request):
+        pwd = gout('pwd') + "/"
+        documents = pwd + f" {pwd}".join(request.data)
+        return Response(gout(f'rm -rf {documents}'))
 
 
 class Info(APIView):
@@ -42,22 +60,22 @@ class Info(APIView):
             'content': content
         })
 
-    def post(self, request):
-        cd(request.data)
+    def post(self, request: rest_framework.request.Request):
+        cd(request.data['directory'])
         return Response(getActualFolder())
 
     def put(self, request):
         name = request.data['name']
-        object_type = request.data['type']
-        command = 'mkdir' if object_type == 'dir' else 'touch'
-        # Returns if error
+        dtype = request.data['type']
+        command = 'mkdir' if dtype == 'dir' else 'touch'
         return Response(gout(f'{command} {name}'))
 
     def patch(self, request):
         pwd = gout('pwd') + "/"
         destiny = pwd + request.data['destiny']
+        action = request.data['action']
         documents = pwd + f" {pwd}".join(request.data['documents'])
-        return Response(gout(f'mv {documents} {destiny}'))
+        return Response(gout(f'{action} {documents} {destiny}'))
 
 
 class Permissions(APIView):
@@ -71,18 +89,14 @@ class Permissions(APIView):
         for i in ['owner', 'group', 'other']:
             n = "".join(['1' if permissions[i][j] else '0' for j in ['read', 'write', 'exec']])
             perms += str(int(n, 2))
-        # Returns if error
         return Response(gout(f'chmod -R {perms} {name}'))
 
     def patch(self, request):
         pwd = gout('pwd') + "/"
-        documents = pwd + f" {pwd}".join(request.data['documents'])
-        print(f'rm -rf {documents}')
+        documents = pwd + f" {pwd}".join(request.data)
         return Response(gout(f'rm -rf {documents}'))
-        # return Response('a')
 
     def put(self, request):
         name = request.data['name']
         user = request.data['user']
-        # Returns if error
         return Response(gout(f'chown -R {user} {name}'))
