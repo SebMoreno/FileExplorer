@@ -35,9 +35,9 @@ Con esto el backend estará corriendo en el puerto 8000. Dejar esta terminal cor
 
 ## Ejecución del frontend
 
-Entrar a la carpeta `front`. Si estás en la carpeta `back` puedes hacerlo con el comando
+Entrar a la carpeta `front`.
 ```
-cd ../front
+cd FileExplorer/front
 ```
 
 Ahora, para la ejecución se necesita `npm` que se puede instalar con el siguiente comando:
