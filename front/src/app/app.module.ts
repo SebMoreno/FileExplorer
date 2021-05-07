@@ -6,6 +6,12 @@ import { DocPermissionsDialogComponent } from './doc-permissions-dialog/doc-perm
 import { DynamicDialogModule } from 'primeng/dynamicdialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule } from '@angular/common/http';
+import { DropdownModule } from 'primeng/dropdown';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ToggleButtonModule } from 'primeng/togglebutton';
+import { MenuModule } from 'primeng/menu';
+import { DialogModule } from 'primeng/dialog';
+import { InputText, InputTextModule } from 'primeng/inputtext';
 
 @NgModule({
   declarations: [
@@ -16,7 +22,14 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    DynamicDialogModule
+    DynamicDialogModule,
+    DropdownModule,
+    ToggleButtonModule,
+    MenuModule,
+    DialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    InputTextModule
   ],
   providers: [],
   bootstrap: [AppComponent]

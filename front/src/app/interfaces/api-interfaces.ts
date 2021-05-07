@@ -4,7 +4,7 @@ export interface Permission {
   exec: boolean;
 }
 
-export interface Document {
+export interface Doc {
   name: string;
   owner: string;
   type: 'dir' | 'file';
@@ -17,5 +17,9 @@ export interface Document {
 
 export interface State {
   path: string;
-  content: Document[];
+  content: Doc[];
+}
+
+export interface User {
+  user: string;
 }

@@ -1,7 +1,7 @@
-<!--suppress CheckImageSize -->
 <div class="container">
   <div class="up-button">
-    <img alt="folder-up" (click)="folderUp()" *ngIf="apics.path" height="50" src="assets/folder_up.png" width="50">
+    <img (click)="folderUp()" *ngIf="apics.path !== '/'" alt="folder-up" height="50"
+         src="assets/folder_up.png" width="50">
   </div>
 
   <div class="path-string">
@@ -9,25 +9,38 @@
   </div>
 
   <aside>
-    <button>Duplicar</button>
-    <button>Mover</button>
-    <button>Eliminar</button>
-    <button>Cambiar nombre</button>
-    <button (click)="openPermissionsDialog()">Información de permisos</button>
+    <button (click)="toClipboard('copy')" [disabled]="!apics.selectionLength">Copiar</button>
+    <button (click)="toClipboard('move')" [disabled]="!apics.selectionLength">Cortar</button>
+    <button (click)="pasteHere()" [disabled]="!apics.clipboard.length">Pegar aquí</button>
+    <button (click)="deleteDocument()" [disabled]="!apics.selectionLength">Eliminar</button>
+    <button (click)="captureInput('rename')" [disabled]="apics.selectionLength !== 1">Cambiar nombre</button>
+    <button (click)="openPermissionsDialog()" [disabled]="apics.selectionLength !== 1">Información de permisos</button>
   </aside>
 
   <div class="main-view">
     <div class="files">
-      <div (dblclick)="doc.type === 'dir' ? access(i) : null"
+      <div (click)="apics.selection[i] = !apics.selection[i]"
+           (dblclick)="doc.type === 'dir' ? access(i) : null"
            *ngFor="let doc of apics.content; let i=index"
-           [class]="doc.type + '-container'">
+           [class]="doc.type + '-container'"
+           [ngClass]="apics.selection[i] ? 'selected' : ''">
         <img [alt]="doc.type" [src]="'assets/' + doc.type + '.png'" height="100" width="100">
         <p>{{doc.name}}</p>
       </div>
     </div>
 
     <div class="addbutton">
-      <img alt="add-button" height="70" src="assets/boton-agregar.png" width="70">
+      <img (click)="createMenu.toggle($event)" alt="add-button" height="70"
+           src="assets/boton-agregar.png" width="70">
     </div>
+    <p-menu #createMenu [model]="createMenuItems" [popup]="true" appendTo="body"></p-menu>
   </div>
 </div>
+
+
+<p-dialog [(visible)]="captureInputDialog" [dismissableMask]="true" [modal]="true"
+          header="Ingresa un nombre para el documento">
+  <input [(ngModel)]="inputString" pInputText type="text">
+  <button (click)="execAction()">Aceptar</button>
+  <button (click)="captureInputDialog = false">Cancelar</button>
+</p-dialog>

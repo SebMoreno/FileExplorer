@@ -1,48 +1,51 @@
 <div class=vpermission>
 
+  <div>
+    <p>{{doc.type === 'dir' ? 'Directorio' : 'Archivo'}}: {{doc.name}}</p>
+  </div>
+
+  <div class="propietario">
     <div>
-        <p>Permisos y usuarios</p>
+      <p>Propietario:</p>
+    </div>
+    <div>
+      <p-dropdown [(ngModel)]="owner" [options]="apics.usersList" appendTo="body" optionLabel="user"></p-dropdown>
+    </div>
+  </div>
+
+  <div class="table">
+    <div class="title">
+      <p></p>
+      <p>Lectura</p>
+      <p>Excritura</p>
+      <p>Ejecución</p>
     </div>
 
-    <div class="propietario">
-        <div>
-        <p>Propietario:</p>
-        </div>
-        <div>
-        <input type="text" placeholder="nombre_de_propietario">
-        </div>
+    <div [formGroup]="permissionsForm" class="contenido">
+      <ng-container formGroupName="owner">
+        <p>Usuario</p>
+        <p-toggleButton formControlName="read" offIcon="pi pi-times" onIcon="pi pi-check"></p-toggleButton>
+        <p-toggleButton formControlName="write" offIcon="pi pi-times" onIcon="pi pi-check"></p-toggleButton>
+        <p-toggleButton formControlName="exec" offIcon="pi pi-times" onIcon="pi pi-check"></p-toggleButton>
+      </ng-container>
+      <ng-container formGroupName="group">
+        <p>Grupos</p>
+        <p-toggleButton formControlName="read" offIcon="pi pi-times" onIcon="pi pi-check"></p-toggleButton>
+        <p-toggleButton formControlName="write" offIcon="pi pi-times" onIcon="pi pi-check"></p-toggleButton>
+        <p-toggleButton formControlName="exec" offIcon="pi pi-times" onIcon="pi pi-check"></p-toggleButton>
+      </ng-container>
+      <ng-container formGroupName="other">
+        <p>Otros</p>
+        <p-toggleButton formControlName="read" offIcon="pi pi-times" onIcon="pi pi-check"></p-toggleButton>
+        <p-toggleButton formControlName="write" offIcon="pi pi-times" onIcon="pi pi-check"></p-toggleButton>
+        <p-toggleButton formControlName="exec" offIcon="pi pi-times" onIcon="pi pi-check"></p-toggleButton>
+      </ng-container>
     </div>
+  </div>
 
-    <div class="table">
-        <div class="title">
-            <p></p>
-            <p>Usuario</p>
-            <p>Grupos</p>
-            <p>Otros</p>
-        </div>
-        
-        <div class ="contenido">
-          
-                <p>Lectura</p>
-                <input type="checkbox">
-                <input type="checkbox">
-                <input type="checkbox">
-                  
-                <p>Escritura</p>
-                <input type="checkbox">
-                <input type="checkbox">
-                <input type="checkbox">
-             
-                <p>Ejecución</p>
-                <input type="checkbox">
-                <input type="checkbox">
-                <input type="checkbox">
-        </div>
-    </div>
+  <div class="buttons">
+    <button (click)="saveChanges()" style="margin:15px">Aceptar</button>
+    <button (click)="close()" style="margin:15px">Cancelar</button>
+  </div>
 
-    <div class="buttons">
-        <button style="margin:15px">Aceptar</button>
-        <button style="margin:15px">Cancelar</button>
-    </div>
-    
 </div>
