@@ -13,6 +13,12 @@ El backend está construido en django con lo cual python es necesario.
 
 La versión de python necesitada es `python 3.8.5` o compatibles. Es recomendable crear un entorno virtual con `virtualenv`.
 
+Ya que el backend necesita poder cambiar permisos y cambiar propietarios es necesario que se ejecute con super usuario, con lo cual antes de nada ejecuta el comando
+
+```
+sudo su
+```
+
 Entrar a la carpeta `back` del proyecto, con el comando
 ```
 cd FileExplorer/back
