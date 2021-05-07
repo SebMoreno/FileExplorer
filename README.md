@@ -42,7 +42,7 @@ cd ../front
 
 Ahora, para la ejecución se necesita `npm` que se puede instalar con el siguiente comando:
 ```
-apt-get install npm
+apt install npm
 ```
 
 Una vez instalado `npm` solo se deben correr estos dos comandos:
