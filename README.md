@@ -13,9 +13,9 @@ El backend está construido en django con lo cual python es necesario.
 
 La versión de python necesitada es `python 3.8.5` o compatibles. Es recomendable crear un entorno virtual con `virtualenv`.
 
-Entrar a la carpeta `back` con el comando
+Entrar a la carpeta `back` del proyecto, con el comando
 ```
-cd back
+cd FileExplorer/back
 ```
 donde está el archivo `requirements.txt`.
 
