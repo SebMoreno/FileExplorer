@@ -44,7 +44,7 @@ export class AppComponent {
     this.apics.action = action;
     this.apics.clipboard = this.apics.content
       .filter((d, i) => this.apics.selection[i])
-      .map(d => this.apics.path + '/' + d.name);
+      .map(d => this.apics.path + d.name);
     this.apics.clearSelection();
   }
 
