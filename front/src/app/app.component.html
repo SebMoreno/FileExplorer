@@ -15,6 +15,11 @@
     <button (click)="deleteDocument()" [disabled]="!apics.selectionLength">Eliminar</button>
     <button (click)="captureInput('rename')" [disabled]="apics.selectionLength !== 1">Cambiar nombre</button>
     <button (click)="openPermissionsDialog()" [disabled]="apics.selectionLength !== 1">Información de permisos</button>
+    <div class="addbutton">
+      <img (click)="createMenu.toggle($event)" alt="add-button" height="70"
+           src="assets/boton-agregar.png" width="70">
+    </div>
+    <p-menu #createMenu [model]="createMenuItems" [popup]="true" appendTo="body"></p-menu>
   </aside>
 
   <div class="main-view">
@@ -24,25 +29,26 @@
            *ngFor="let doc of apics.content; let i=index"
            [class]="doc.type + '-container'"
            [ngClass]="apics.selection[i] ? 'selected' : ''">
-        <img [alt]="doc.type" [src]="'assets/' + doc.type + '.png'" height="100" width="100">
+        <img [alt]="doc.type" [src]="'assets/' + doc.type + '.png'" width="100px" height="100px">
         <p>{{doc.name}}</p>
       </div>
     </div>
 
-    <div class="addbutton">
-      <img (click)="createMenu.toggle($event)" alt="add-button" height="70"
-           src="assets/boton-agregar.png" width="70">
-    </div>
-    <p-menu #createMenu [model]="createMenuItems" [popup]="true" appendTo="body"></p-menu>
+    
   </div>
 </div>
 
 
 <p-dialog [(visible)]="captureInputDialog" [dismissableMask]="true" [modal]="true"
           header="Ingresa un nombre para el documento">
-  <input [(ngModel)]="inputString" pInputText type="text">
-  <button (click)="execAction()">Aceptar</button>
-  <button (click)="captureInputDialog = false">Cancelar</button>
+          
+  <div>
+    <input [(ngModel)]="inputString" pInputText type="text" placeholder="nombre...">
+  </div>
+  <div>
+    <button (click)="execAction()">Aceptar</button>
+    <button (click)="captureInputDialog = false">Cancelar</button>
+  </div>
 </p-dialog>
 
 <p-toast></p-toast>

@@ -11,74 +11,81 @@
     p{
         color:black;
     }
-}
 
-.propietario{
-    
-    display: flex;
-    border-top: 1px solid black;
-    border-bottom: 1px solid black;
-
-    div{
-        flex:1;
-        margin: auto;
-        text-align: center;   
+    .typefile{
+        margin-left: 20%;
+        margin-right: 20%;
+        overflow-y: hidden;
+        p{
+        overflow:hidden;
+        white-space:nowrap;
+        text-overflow: ellipsis;
+        }
     }
-}
-
-.table{
-
-    border-bottom: 1px solid black;
-
-    .title{
+    .propietario{
         
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        grid-template-rows: repeat(1,1fr);
+        display: flex;
+        border-top: 1px solid black;
         border-bottom: 1px solid black;
-        
-        text-align: center;
-        background: #C2C2C2;
     
         div{
             flex:1;
+            margin: auto;
+            text-align: center;   
+        }
+    }
+    
+    .table{
+    
+        border-bottom: 1px solid black;
+    
+        .title{
+            
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(1,1fr);
+            border-bottom: 1px solid black;
+            
             text-align: center;
+            background: #C2C2C2;
+        
+            div{
+                flex:1;
+                text-align: center;
+            } 
+        }
+    
+        .contenido{
+            
+            display: grid;
+            grid-template-columns: repeat(4,1fr);
+            grid-template-rows: repeat(3,1fr);
+            align-items: center;
+    
+            p{
+                text-align: center;
+            }
         } 
     }
-
-    .contenido{
-        
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
-        grid-template-rows: repeat(3,1fr);
-
-        p{
-            text-align: center;
-        }
-
-        input[type=checkbox]{
-            margin: auto;
-        }
-    } 
-}
-
-.buttons{
     
-    text-align: center;
-    margin: auto;
-    flex: 1;
-
-    button {
-        background-color: #DCDCDC;
-        color:black;
+    .buttons{
         
-        &:hover {
-          background-color: #C1C1C1;
-          color: black;
-        }
+        text-align: center;
+        margin: auto;
+        flex: 1;
     
-        &:active {
-          background-color: #83827B;
+        button {
+            background-color: #DCDCDC;
+            color:black;
+            
+            &:hover {
+              background-color: #C1C1C1;
+              color: black;
+            }
+        
+            &:active {
+              background-color: #83827B;
+            }
         }
     }
 }

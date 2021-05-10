@@ -50,6 +50,7 @@ export class AppComponent {
 
   pasteHere(): void {
     this.apics.doActionWithDocuments(this.apics.clipboard, this.apics.path);
+    this.apics.clipboard=[];
   }
 
   deleteDocument(): void {
