@@ -1,7 +1,7 @@
 <div class="container">
   <div class="up-button">
-    <img (click)="folderUp()" *ngIf="apics.path !== '/'" alt="folder-up" height="50"
-         src="assets/folder_up.png" width="50">
+    <img (click)="folderUp()" *ngIf="apics.path !== '/'" alt="folder-up" 
+         src="assets/folder_up.png">
   </div>
 
   <div class="path-string">
@@ -16,8 +16,8 @@
     <button (click)="captureInput('rename')" [disabled]="apics.selectionLength !== 1">Cambiar nombre</button>
     <button (click)="openPermissionsDialog()" [disabled]="apics.selectionLength !== 1">Información de permisos</button>
     <div class="addbutton">
-      <img (click)="createMenu.toggle($event)" alt="add-button" height="70"
-           src="assets/boton-agregar.png" width="70">
+      <img (click)="createMenu.toggle($event)" alt="add-button" 
+           src="assets/boton-agregar.png" >
     </div>
     <p-menu #createMenu [model]="createMenuItems" [popup]="true" appendTo="body"></p-menu>
   </aside>
@@ -29,12 +29,10 @@
            *ngFor="let doc of apics.content; let i=index"
            [class]="doc.type + '-container'"
            [ngClass]="apics.selection[i] ? 'selected' : ''">
-        <img [alt]="doc.type" [src]="'assets/' + doc.type + '.png'" width="100px" height="100px">
+        <img [alt]="doc.type" [src]="'assets/' + doc.type + '.png'">
         <p>{{doc.name}}</p>
       </div>
     </div>
-
-    
   </div>
 </div>
 
