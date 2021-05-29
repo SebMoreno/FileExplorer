@@ -5,19 +5,19 @@ Todo lo siguiente debe realizarse en un sistema Linux para que el proyecto funci
 
 Todos los comandos son los correspondientes probados en un sistema `Ubuntu 20.04.2 LTS`, `Release 20.04` recién instalado.
 
-Después de clonar el reponsitorio seguir los siguientes pasos.
+Ya que el proyecto necesita poder cambiar permisos y propietarios de los documentos es necesario que se clone y ejecute con super usuario, con lo cual antes de nada por favor ejecuta el comando 
+
+```
+sudo su -
+```
+
+Después de clonar el repositorio, seguir los siguientes pasos:
 
 ## Ejecución del backend
 
 El backend está construido en django con lo cual python es necesario.
 
 La versión de python necesitada es `python 3.8.5` o compatibles. Es recomendable crear un entorno virtual con `virtualenv`.
-
-Ya que el backend necesita poder cambiar permisos y cambiar propietarios es necesario que se ejecute con super usuario, con lo cual antes de nada ejecuta el comando
-
-```
-sudo su
-```
 
 Entrar a la carpeta `back` del proyecto, con el comando
 ```
