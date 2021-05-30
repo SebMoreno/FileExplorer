@@ -1,8 +1,7 @@
 <div class="container">
-  <!-- <img (click)="folderUp()" *ngIf="apics.path !== '/'" alt="folder-up"
-        src="assets/folder_up.png">-->
   <div style="display: flex">
-    <a (click)="folderUp()" *ngIf="apics.path !== '/'" class="up-button p-button-outlined p-button-help" pButton pRipple>
+    <a (click)="folderUp()" *ngIf="apics.path !== '/'"
+       class="up-button p-button-outlined p-button-help" pButton pRipple>
       <i class="pi pi-arrow-up"></i>
       <i class="pi pi-folder-open"></i>
     </a>
@@ -56,7 +55,7 @@
 <p-dialog [(visible)]="captureInputDialog" [dismissableMask]="true" [draggable]="false"
           [modal]="true" [resizable]="false" header="Ingresa un nombre para el documento">
   <div>
-    <input [(ngModel)]="inputString" (keydown.enter)="execAction()" pInputText placeholder="Nombre..." type="text">
+    <input (keydown.enter)="execAction()" [(ngModel)]="inputString" pInputText placeholder="Nombre..." type="text">
   </div>
   <div class="buttons">
     <button (click)="captureInputDialog = false" class="p-button-raised p-button-outlined" pButton>Cancelar</button>

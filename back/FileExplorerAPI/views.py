@@ -44,7 +44,7 @@ class DocHandler(APIView):
             'content': content
         })
 
-    def post(self, request: rest_framework.request.Request):
+    def post(self, request):
         cd(request.data['directory'])
         return Response(getActualFolder())
 
