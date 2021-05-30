@@ -2,42 +2,29 @@
   display: grid;
   grid-template-columns: 20% auto;
   grid-template-rows: 10%;
-  background: #c7ecc7;
-  border: 1px solid black;
+  background: #fafafa;
   height: 100%;
 }
 
 .up-button {
-  display: flex;
   margin: auto;
-  justify-content: center;
-  img {
-    width: 20%;
-    border: 2px solid black;
-    background-color: #DCDCDC;
+  border-width: medium;
 
-    &:hover {
-      cursor: pointer;
-      background-color: #C1C1C1;
-    }
-
-    &:active {
-      cursor: pointer;
-      background-color: #83827B;
-    }
+  i {
+    font-size: 2em;
   }
 }
 
 .path-string {
-  
-  overflow-y: hidden;
+
+  display: flex;
+  overflow: auto;
   border-left: 1px solid black;
   border-bottom: 1px solid black;
   box-sizing: border-box;
-  
-  h1{
-    font-size: 2vw;
-    margin-top: auto;
+
+  h1 {
+    margin: auto 0;
   }
 }
 
@@ -47,75 +34,29 @@ aside {
   border-top: 1px solid black;;
   border-right: 1px solid black;
 
+  button {
+    height: 10%;
+    font-size: 1.2em;
+    margin-bottom: 0.3em;
+    border-radius: 0 40px 40px 0;
+  }
+
   .addbutton {
     display: flex;
-    position: absolute;
-    width: 20%;
+    width: 100%;
     height: 15%;
-    bottom: 0;
-    border-top: 1px solid black;
     align-items: center;
-    margin: auto;
-  
-    img {
-      display: block;
-      margin: auto;
-      border-radius: 45px;
-      height: 70%;
-  
-      &:hover {
-        cursor: pointer;
-        background: #C1C1C1;
-      }
-  
-      &:active {
-        cursor: pointer;
-        background: #83827B;
+    justify-content: center;
+    margin-top: auto;
+
+    button {
+      padding: 1.5em;
+
+      ::ng-deep .p-button-icon {
+        font-size: 1.5em;
       }
     }
   }
-  
-  p-dialog{
-    display: flex;
-    align-items: center;
-    text-align: center;
-    
-      button{
-       margin: 5%;
-       
-        background-color: #DCDCDC;
-        color:black;
-        
-        &:hover {
-          background-color: #C1C1C1;
-          color: black;
-        }
-    
-        &:active {
-          background-color: #83827B;
-        }
-      }
-  }
-
-  button {
-    background-color: #DCDCDC;
-    height: 10%;
-    font-size: 1.5vw;
-  
-    &:hover {
-      background-color: #C1C1C1;
-      color: black;
-    }
-
-    &:active {
-      background-color: #83827B;
-    }
-
-    &:disabled{
-      background-color: #c7c7c7;
-      color: #a3a3a3;
-    }
-  } 
 }
 
 .main-view {
@@ -123,7 +64,7 @@ aside {
   position: relative;
   overflow: hidden;
   margin: 1%;
-  
+
 }
 
 .files {
@@ -134,10 +75,10 @@ aside {
   align-content: baseline;
   flex-wrap: wrap;
 
-  div{
+  div {
     width: 15%;
     height: auto;
-    margin:0.1%;
+    margin: 0.1%;
     display: inline-block;
     box-sizing: border-box;
     cursor: pointer;
@@ -152,7 +93,8 @@ aside {
       background-color: #8DE7EC;
       border: 1px solid #6EACBE;
     }
-    img{
+
+    img {
       width: 50%;
       margin-top: 5px;
     }

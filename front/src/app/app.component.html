@@ -1,7 +1,11 @@
 <div class="container">
-  <div class="up-button">
-    <img (click)="folderUp()" *ngIf="apics.path !== '/'" alt="folder-up" 
-         src="assets/folder_up.png">
+  <!-- <img (click)="folderUp()" *ngIf="apics.path !== '/'" alt="folder-up"
+        src="assets/folder_up.png">-->
+  <div style="display: flex">
+    <a (click)="folderUp()" *ngIf="apics.path !== '/'" class="up-button p-button-outlined p-button-help" pButton pRipple>
+      <i class="pi pi-arrow-up"></i>
+      <i class="pi pi-folder-open"></i>
+    </a>
   </div>
 
   <div class="path-string">
@@ -9,15 +13,27 @@
   </div>
 
   <aside>
-    <button (click)="toClipboard('copy')" [disabled]="!apics.selectionLength">Copiar</button>
-    <button (click)="toClipboard('move')" [disabled]="!apics.selectionLength">Cortar</button>
-    <button (click)="pasteHere()" [disabled]="!apics.clipboard.length">Pegar aquí</button>
-    <button (click)="deleteDocument()" [disabled]="!apics.selectionLength">Eliminar</button>
-    <button (click)="captureInput('rename')" [disabled]="apics.selectionLength !== 1">Cambiar nombre</button>
-    <button (click)="openPermissionsDialog()" [disabled]="apics.selectionLength !== 1">Información de permisos</button>
+    <button (click)="toClipboard('copy')" [disabled]="!apics.selectionLength" pButton pRipple>
+      Copiar
+    </button>
+    <button (click)="toClipboard('move')" [disabled]="!apics.selectionLength" pButton pRipple>
+      Cortar
+    </button>
+    <button (click)="pasteHere()" [disabled]="!apics.clipboard.length" pButton pRipple>
+      Pegar aquí
+    </button>
+    <button (click)="deleteDocument()" [disabled]="!apics.selectionLength" pButton pRipple>
+      Eliminar
+    </button>
+    <button (click)="captureInput('rename')" [disabled]="apics.selectionLength !== 1" pButton pRipple>
+      Cambiar nombre
+    </button>
+    <button (click)="openPermissionsDialog()" [disabled]="apics.selectionLength !== 1" pButton pRipple>
+      Información de permisos
+    </button>
     <div class="addbutton">
-      <img (click)="createMenu.toggle($event)" alt="add-button" 
-           src="assets/boton-agregar.png" >
+      <button (click)="createMenu.toggle($event)" class="p-button-rounded p-button-outlined p-button-raised"
+              icon="pi pi-plus" pButton pRipple type="button"></button>
     </div>
     <p-menu #createMenu [model]="createMenuItems" [popup]="true" appendTo="body"></p-menu>
   </aside>
@@ -37,15 +53,14 @@
 </div>
 
 
-<p-dialog [(visible)]="captureInputDialog" [dismissableMask]="true" [modal]="true"
-          header="Ingresa un nombre para el documento">
-          
+<p-dialog [(visible)]="captureInputDialog" [dismissableMask]="true" [draggable]="false"
+          [modal]="true" [resizable]="false" header="Ingresa un nombre para el documento">
   <div>
-    <input [(ngModel)]="inputString" pInputText type="text" placeholder="nombre...">
+    <input [(ngModel)]="inputString" (keydown.enter)="execAction()" pInputText placeholder="Nombre..." type="text">
   </div>
-  <div>
-    <button (click)="execAction()">Aceptar</button>
-    <button (click)="captureInputDialog = false">Cancelar</button>
+  <div class="buttons">
+    <button (click)="captureInputDialog = false" class="p-button-raised p-button-outlined" pButton>Cancelar</button>
+    <button (click)="execAction()" class="p-button-raised" pButton>Aceptar</button>
   </div>
 </p-dialog>
 

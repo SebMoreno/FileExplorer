@@ -14,6 +14,8 @@ import { DialogModule } from 'primeng/dialog';
 import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
+import { ButtonModule } from 'primeng/button';
+import { RippleModule } from 'primeng/ripple';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,9 @@ import { MessageService } from 'primeng/api';
     FormsModule,
     ReactiveFormsModule,
     InputTextModule,
-    ToastModule
+    ToastModule,
+    ButtonModule,
+    RippleModule
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

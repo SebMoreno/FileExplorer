@@ -1,8 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DialogService } from 'primeng/dynamicdialog';
 import { DocPermissionsDialogComponent } from './doc-permissions-dialog/doc-permissions-dialog.component';
 import { ApiControllerService } from './services/api-controller.service';
-import { MenuItem, PrimeIcons } from 'primeng/api';
+import { MenuItem, PrimeIcons, PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
@@ -10,7 +10,7 @@ import { MenuItem, PrimeIcons } from 'primeng/api';
   styleUrls: ['./app.component.scss'],
   providers: [DialogService]
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
   createMenuItems: MenuItem[] = [
     {label: 'Archivo de texto', icon: PrimeIcons.FILE, command: () => this.captureInput('newFile')},
@@ -20,7 +20,11 @@ export class AppComponent {
   inputString = '';
   action: 'newDir' | 'newFile' | 'rename' = 'rename';
 
-  constructor(private dialogService: DialogService, public apics: ApiControllerService) {
+  constructor(private dialogService: DialogService, public apics: ApiControllerService, private primengConfig: PrimeNGConfig) {
+  }
+
+  ngOnInit(): void {
+    this.primengConfig.ripple = true;
   }
 
   openPermissionsDialog(): void {
@@ -42,15 +46,16 @@ export class AppComponent {
 
   toClipboard(action: 'move' | 'copy'): void {
     this.apics.action = action;
+    const separator = this.apics.path === '/' ? '' : '/';
     this.apics.clipboard = this.apics.content
       .filter((d, i) => this.apics.selection[i])
-      .map(d => this.apics.path + d.name);
+      .map(d => this.apics.path + separator + d.name);
     this.apics.clearSelection();
   }
 
   pasteHere(): void {
     this.apics.doActionWithDocuments(this.apics.clipboard, this.apics.path);
-    this.apics.clipboard=[];
+    this.apics.clipboard = [];
   }
 
   deleteDocument(): void {
@@ -73,7 +78,7 @@ export class AppComponent {
         this.apics.createDocument(this.inputString, 'dir');
         break;
       case 'newFile':
-        this.apics.createDocument(this.inputString + '.txt', 'file');
+        this.apics.createDocument(this.inputString, 'file');
         break;
       case 'rename':
         this.apics.renameDocument(this.apics.firstSelectedDocument.name, this.inputString);
