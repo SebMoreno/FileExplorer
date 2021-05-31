@@ -44,7 +44,7 @@
            *ngFor="let doc of apics.content; let i=index"
            [class]="doc.type + '-container'"
            [ngClass]="apics.selection[i] ? 'selected' : ''">
-        <img [alt]="doc.type" [src]="'assets/' + doc.type + '.png'">
+        <img [alt]="doc.type" [src]="'static/assets/' + doc.type + '.png'">
         <p>{{doc.name}}</p>
       </div>
     </div>
