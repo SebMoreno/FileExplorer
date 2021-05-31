@@ -1,6 +1,4 @@
 export const environment = {
   production: true,
-  ServerUrl: 'http://localhost'
+  ServerUrl: 'http://13.59.7.40'
 };
-
-console.log('production');
