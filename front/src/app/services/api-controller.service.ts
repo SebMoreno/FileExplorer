@@ -41,10 +41,7 @@ export class ApiControllerService {
         this.content = state.content.sort((a, b) => a.type.localeCompare(b.type));
         this.selection = new Array(this.content.length).fill(false);
       },
-      error: (err) => {
-        console.log(err);
-        this.handleError('Hubo un error accediendo al servidor');
-      }
+      error: () => this.handleError('Hubo un error accediendo al servidor')
     });
   }
 
