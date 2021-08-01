@@ -1,5 +1,7 @@
 # FileExplorer
 
+### ACTUALMENTE EL PROYECTO ESTÁ FUNCIONANDO ONLINE EN LA SIGUIENTE URL: `http://18.116.239.121` usarlo con discreción.
+
 El proyecto está hecho con dos tecnologías, una para el backend (Django) y otra para el frontend (Angular).
 Todo lo siguiente debe realizarse en un sistema Linux para que el proyecto funcione.
 
